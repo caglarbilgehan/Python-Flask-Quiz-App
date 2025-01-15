@@ -1,0 +1,114 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    width: 70%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.result-text {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-top: 30px;
+}
+
+/* Score Section */
+.score-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.score-box {
+    background-color: #2980b9;
+    color: #fff;
+    padding: 25px 40px;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.score-box:hover {
+    background-color: #3498db;
+    transform: translateY(-5px);
+}
+
+/* High Score Section */
+.high-score {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #e67e22;
+    color: #fff;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+/* Button Styles */
+button {
+    background-color: #27ae60;
+    color: white;
+    padding: 12px 30px;
+    font-size: 1.3rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+}
+
+button:hover {
+    background-color: #2ecc71;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .result-container {
+        width: 85%;
+    }
+
+    .score-container {
+        flex-direction: column;
+    }
+
+    .score-box {
+        margin-bottom: 20px;
+    }
+}

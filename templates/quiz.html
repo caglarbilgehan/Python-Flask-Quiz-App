@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Eğlenceli Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Python'la Eğlenceli Bir Quiz!</h1>
+        <form action="/submit" method="POST">
+            <div class="question">
+                <label for="q1">1. Python'da "elif" ne işe yarar?</label><br>
+                <input type="radio" id="q1A" name="q1" value="A"> Elif, Python'daki "else" kısmının kardeşi! <br>
+                <input type="radio" id="q1B" name="q1" value="B"> Elif, bir Python sihirbazının gizli sözcüğü. <br>
+                <input type="radio" id="q1C" name="q1" value="C"> Elif, Python'da pizza siparişi verirken kullandığın kod. <br>
+            </div>
+
+            <div class="question">
+                <label for="q2">2. Python'da hangi komut ile ekrana yazı yazdırılır?</label><br>
+                <input type="radio" id="q2A" name="q2" value="A"> print() – Bu komut seni ünlü yapabilir! <br>
+                <input type="radio" id="q2B" name="q2" value="B"> shout() – Gerçekten bağırıyor mu? <br>
+                <input type="radio" id="q2C" name="q2" value="C"> display() – Ama biraz daha gösterişli! <br>
+            </div>
+
+            <div class="question">
+                <label for="q3">3. Python'da "list" nedir?</label><br>
+                <input type="radio" id="q3A" name="q3" value="A"> Python'un en sevimli öğün listesi! <br>
+                <input type="radio" id="q3B" name="q3" value="B"> Veri tipidir, sıralı ve değiştirilebilir. <br>
+                <input type="radio" id="q3C" name="q3" value="C"> Python'un gizli alışveriş sepeti. <br>
+            </div>
+
+            <div class="question">
+                <label for="q4">4. Python'da hangi döngü sonsuz kez çalışabilir?</label><br>
+                <input type="radio" id="q4A" name="q4" value="A"> while döngüsü – Sonsuza kadar gidebilir! <br>
+                <input type="radio" id="q4B" name="q4" value="B"> for döngüsü – Ama biraz daha disiplinli! <br>
+                <input type="radio" id="q4C" name="q4" value="C"> never-ending-loop() – Sonsuz bir isim! <br>
+            </div>
+
+            <div class="question">
+                <label for="q5">5. Python'da "def" neyi tanımlar?</label><br>
+                <input type="radio" id="q5A" name="q5" value="A"> Fonksiyon tanımlar – Ama unutma, çok eğlenceli! <br>
+                <input type="radio" id="q5B" name="q5" value="B"> Python'un gizli takma adı. <br>
+                <input type="radio" id="q5C" name="q5" value="C"> Kod yazmanın 1 numaralı sırrı. <br>
+            </div>
+
+            <button type="submit">Gönder</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>Geliştirici: Ercüment Çağlar Bilgehan > KODLAND TUTOR</p>
+    </footer>
+</body>
+</html>
