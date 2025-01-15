@@ -1,2 +1,3 @@
-# python-quiz-app
+# Pythton Flask Quiz App
+# Developer: Ercüment Çağlar Bilgehan
  
