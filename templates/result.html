@@ -3,43 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sonuç</title>
+    <title>Results (Sonuçlar)</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Sonuçlar</h1>
+        <h1>Results (Sonuçlar)</h1>
         
         <!-- Score and High Score Section -->
         <div class="score-container">
             <div class="score-box">
-                Puanınız: {{ score }} / 5
+                Your Score (Puanınız): {{ score }} / 5
             </div>
             <div class="score-box high-score">
-                En Yüksek Puan: {{ highest_score }}
+                Highest Score (En Yüksek Puan): {{ highest_score }}
             </div>
         </div>
         
         <!-- Result Text -->
         <div class="result-text">
-            <p>Vay canına! Sınavı tamamladın! 🎉</p>
-            <p>Python konularına göz atarak daha fazla eğlenebilir ve öğrenebilirsin! 💻</p>
-            <p>Belki bir dahaki sefere "hepsini doğru" yapabilirsin! 😎</p>
+            <p><strong>You completed the quiz!</strong> 🎉<br> (Vay canına! Sınavı tamamladın! 🎉)</p>
+            <p><strong>You can have more fun and learn by exploring Python topics! 💻</strong><br> (Python konularına göz atarak daha fazla eğlenebilir ve öğrenebilirsin! 💻)</p>
+            <p><strong>Maybe next time you can get them all right! 😎</strong><br> (Belki bir dahaki sefere "hepsini doğru" yapabilirsin! 😎)</p>
         </div>
         
         <!-- New Exam Button -->
         <a href="/" class="btn">
-            <button>Yeni Sınav Başlat</button>
+            <button>Start New Quiz (Yeni Sınav Başlat)</button>
         </a>
 
         <!-- Reset High Score -->
         <form action="/reset" method="post" style="margin-top: 20px;">
-            <button id="reset-high-score-button" type="submit">En Yüksek Puanı Sıfırla</button>
+            <button id="reset-high-score-button" type="submit">Reset Highest Score (En Yüksek Puanı Sıfırla)</button>
         </form>
         
         <!-- Footer with Developer Info -->
         <footer>
-            <p>Geliştirici: Ercüment Çağlar Bilgehan > KODLAND TUTOR</p>
+            <p>Developer (Geliştirici): Ercüment Çağlar Bilgehan</p>
         </footer>
     </div>
 </body>
