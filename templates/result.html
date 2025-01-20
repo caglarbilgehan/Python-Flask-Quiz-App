@@ -8,15 +8,15 @@
 </head>
 <body>
     <div class="container">
-        <h1>Results (Sonuçlar)</h1>
+        <h1><strong>Results</strong> (Sonuçlar)</h1>
         
         <!-- Score and High Score Section -->
         <div class="score-container">
             <div class="score-box">
-                Your Score (Puanınız): {{ score }} / 5
+                <strong>Your Score</strong> (Puanınız): {{ score }} / 5
             </div>
             <div class="score-box high-score">
-                Highest Score (En Yüksek Puan): {{ highest_score }}
+                <strong>Highest Score</strong> (En Yüksek Puan): {{ highest_score }}
             </div>
         </div>
         
@@ -29,17 +29,17 @@
         
         <!-- New Exam Button -->
         <a href="/" class="btn">
-            <button>Start New Quiz (Yeni Sınav Başlat)</button>
+            <button><strong>New Quiz</strong> (Yeni Sınav Başlat)</button>
         </a>
 
         <!-- Reset High Score -->
         <form action="/reset" method="post" style="margin-top: 20px;">
-            <button id="reset-high-score-button" type="submit">Reset Highest Score (En Yüksek Puanı Sıfırla)</button>
+            <button id="reset-high-score-button" type="submit"><strong>Highest Score</strong> (En Yüksek Puanı Sıfırla)</button>
         </form>
         
         <!-- Footer with Developer Info -->
         <footer>
-            <p>Developer (Geliştirici): Ercüment Çağlar Bilgehan</p>
+            <p><strong>Developer</strong> (Geliştirici): Ercüment Çağlar Bilgehan</p>
         </footer>
     </div>
 </body>
