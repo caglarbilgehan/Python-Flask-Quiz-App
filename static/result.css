@@ -98,6 +98,15 @@ button:hover {
     background-color: #2ecc71;
 }
 
+#reset-high-score-button{
+    margin-top: 0 !important;
+    background-color: #e67e22;
+}
+
+#reset-high-score-button:hover {
+    background-color: #e69e33;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .result-container {
