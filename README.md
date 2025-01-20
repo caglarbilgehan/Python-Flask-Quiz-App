@@ -44,10 +44,10 @@ http://127.0.0.1:5000
 
 ## Screenshots
 ### Home Page
-<img src="screenshots/quiz.jpeg" alt="Quiz Page" width="600">
+<img src="screenshots/quiz.jpg" alt="Quiz Page" width="600">
 
 ### Results Page
-<img src="screenshots/results.png" alt="Results Page" width="600">
+<img src="screenshots/results.jpg" alt="Results Page" width="600">
 
 ## Project Structure
 ```
