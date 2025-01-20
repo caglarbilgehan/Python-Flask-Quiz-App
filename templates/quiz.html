@@ -3,56 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Fun Quiz with Python! (Python'la Eğlenceli Bir Quiz!)</title>
+    <title>A Fun Quiz with Python!</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>A Fun Quiz with Python!<br>(Python'la Eğlenceli Bir Quiz!)</h1>
+        <h1>A Fun Quiz with Python!</h1>
         <form action="/submit" method="POST">
             <div class="question">
-                <label for="q1"><strong>1.What does "elif" do in Python?</strong> (Python'da "elif" ne işe yarar?)</label><br>
-                <input type="radio" id="q1A" name="q1" value="A"><strong>Elif is the sibling of "else" in Python!</strong> (Elif, Python'daki "else" kısmının kardeşi!)<br>
-                <input type="radio" id="q1B" name="q1" value="B"><strong>Elif is the secret word of a Python wizard.</strong> (Elif, bir Python sihirbazının gizli sözcüğü.)<br>
-                <input type="radio" id="q1C" name="q1" value="C"><strong>Elif is the code you use to order pizza in Python.</strong> (Elif, Python'da pizza siparişi verirken kullandığın kod.)<br>
+                <label for="q1">1. What does "elif" do in Python?</label><br>
+                <input type="radio" id="q1A" name="q1" value="A">Elif is the sibling of "else" in Python!<br>
+                <input type="radio" id="q1B" name="q1" value="B">Elif is the secret word of a Python wizard.<br>
+                <input type="radio" id="q1C" name="q1" value="C">Elif is the code you use to order pizza in Python.<br>
             </div>
 
             <div class="question">
-                <label for="q2"><strong>2. Which command prints text to the screen in Python?</strong> (Python'da hangi komut ile ekrana yazı yazdırılır?)</label><br>
-                <input type="radio" id="q2A" name="q2" value="A"><strong>print() – This command might make you famous!</strong> (Bu komut seni ünlü yapabilir!)<br>
-                <input type="radio" id="q2B" name="q2" value="B"><strong>shout() – Does it really shout?</strong> (Gerçekten bağırıyor mu?)<br>
-                <input type="radio" id="q2C" name="q2" value="C"><strong>display() – But a bit more stylish!</strong> (Ama biraz daha gösterişli!)<br>
+                <label for="q2">2. Which command prints text to the screen in Python?</label><br>
+                <input type="radio" id="q2A" name="q2" value="A">print() – This command might make you famous!<br>
+                <input type="radio" id="q2B" name="q2" value="B">shout() – Does it really shout?<br>
+                <input type="radio" id="q2C" name="q2" value="C">display() – But a bit more stylish!<br>
             </div>
 
             <div class="question">
-                <label for="q3"><strong>3. What is a "list" in Python?</strong> (Python'da "list" nedir?)</label><br>
-                <input type="radio" id="q3A" name="q3" value="A"><strong>Python's cutest meal list!</strong> (Python'un en sevimli öğün listesi!)<br>
-                <input type="radio" id="q3B" name="q3" value="B"><strong>It is a data type, ordered and mutable.</strong> (Veri tipidir, sıralı ve değiştirilebilir.)<br>
-                <input type="radio" id="q3C" name="q3" value="C"><strong>Python's secret shopping cart.</strong> (Python'un gizli alışveriş sepeti.)<br>
+                <label for="q3">3. What is a "list" in Python?</label><br>
+                <input type="radio" id="q3A" name="q3" value="A">Python's cutest meal list!<br>
+                <input type="radio" id="q3B" name="q3" value="B">It is a data type, ordered and mutable.<br>
+                <input type="radio" id="q3C" name="q3" value="C">Python's secret shopping cart.<br>
             </div>
 
             <div class="question">
-                <label for="q4"><strong>4. Which loop can run infinitely in Python?</strong> (Python'da hangi döngü sonsuz kez çalışabilir?)</label><br>
-                <input type="radio" id="q4A" name="q4" value="A"><strong>while loop – It can go on forever!</strong> (while döngüsü – Sonsuza kadar gidebilir!)<br>
-                <input type="radio" id="q4B" name="q4" value="B"><strong>for loop – But a bit more disciplined!</strong> (for döngüsü – Ama biraz daha disiplinli!)<br>
-                <input type="radio" id="q4C" name="q4" value="C"><strong>never-ending-loop() – An infinite name!</strong> (never-ending-loop() – Sonsuz bir isim!)<br>
+                <label for="q4">4. Which loop can run infinitely in Python?</label><br>
+                <input type="radio" id="q4A" name="q4" value="A">while loop – It can go on forever!<br>
+                <input type="radio" id="q4B" name="q4" value="B">for loop – But a bit more disciplined!<br>
+                <input type="radio" id="q4C" name="q4" value="C">never-ending-loop() – An infinite name!<br>
             </div>
 
             <div class="question">
-                <label for="q5"><strong>5. What does "def" define in Python?</strong> (Python'da "def" neyi tanımlar?)</label><br>
-                <input type="radio" id="q5A" name="q5" value="A"><strong>It defines a function – And don't forget, it's fun!</strong> (Fonksiyon tanımlar – Ama unutma, çok eğlenceli!)<br>
-                <input type="radio" id="q5B" name="q5" value="B"><strong>Python's secret alias.</strong> (Python'un gizli takma adı.)<br>
-                <input type="radio" id="q5C" name="q5" value="C"><strong>The number one secret of coding.</strong> (Kod yazmanın 1 numaralı sırrı.)<br>
+                <label for="q5">5. What does "def" define in Python?</label><br>
+                <input type="radio" id="q5A" name="q5" value="A">It defines a function – And don't forget, it's fun!<br>
+                <input type="radio" id="q5B" name="q5" value="B">Python's secret alias.<br>
+                <input type="radio" id="q5C" name="q5" value="C">The number one secret of coding.<br>
             </div>
 
-            <button type="submit"><strong>Submit</strong> (Gönder)</button>
+            <button type="submit">Submit</button>
         </form>
-
     </div>
 
     <footer>
-        <p>Developer (Geliştirici): Ercüment Çağlar Bilgehan</p>
+        <p>Developer: E.Çağlar Bilgehan</p>
+        <p><a href="https://github.com/caglarbilgehan" target="_blank">github.com/caglarbilgehan</a></p>
     </footer>
 </body>
 </html>

@@ -1,45 +1,46 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results (Sonuçlar)</title>
+    <title>Results</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1><strong>Results</strong> (Sonuçlar)</h1>
+        <h1>Results</h1>
         
         <!-- Score and High Score Section -->
         <div class="score-container">
             <div class="score-box">
-                <strong>Your Score</strong> (Puanınız): {{ score }} / 5
+                Your Score: {{ score }} / 5
             </div>
             <div class="score-box high-score">
-                <strong>Highest Score</strong> (En Yüksek Puan): {{ highest_score }}
+                Highest Score: {{ highest_score }}
             </div>
         </div>
         
         <!-- Result Text -->
         <div class="result-text">
-            <p><strong>You completed the quiz!</strong> 🎉<br> (Vay canına! Sınavı tamamladın! 🎉)</p>
-            <p><strong>You can have more fun and learn by exploring Python topics! 💻</strong><br> (Python konularına göz atarak daha fazla eğlenebilir ve öğrenebilirsin! 💻)</p>
-            <p><strong>Maybe next time you can get them all right! 😎</strong><br> (Belki bir dahaki sefere "hepsini doğru" yapabilirsin! 😎)</p>
+            <p>You completed the quiz! 🎉</p>
+            <p>You can have more fun and learn by exploring Python topics! 💻</p>
+            <p>Maybe next time you can get them all right! 😎</p>
         </div>
         
         <!-- New Exam Button -->
         <a href="/" class="btn">
-            <button><strong>New Quiz</strong> (Yeni Sınav Başlat)</button>
+            <button>New Quiz</button>
         </a>
 
         <!-- Reset High Score -->
         <form action="/reset" method="post" style="margin-top: 20px;">
-            <button id="reset-high-score-button" type="submit"><strong>Highest Score</strong> (En Yüksek Puanı Sıfırla)</button>
+            <button id="reset-high-score-button" type="submit">Reset Highest Score</button>
         </form>
         
         <!-- Footer with Developer Info -->
         <footer>
-            <p><strong>Developer</strong> (Geliştirici): Ercüment Çağlar Bilgehan</p>
+            <p>Developer: E.Çağlar Bilgehan</p>
+            <p><a href="https://github.com/caglarbilgehan" target="_blank">github.com/caglarbilgehan</a></p>
         </footer>
     </div>
 </body>
