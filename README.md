@@ -42,6 +42,11 @@ http://127.0.0.1:5000
 - Click the "Reset Highest Score" button to clear all scores.
 - Start a new quiz by clicking the "Start New Quiz" button.
 
+## Video Demo
+
+[![Watch the video](https://img.youtube.com/vi/Em_GhfFaUdU/maxresdefault.jpg)](https://youtu.be/Em_GhfFaUdU)
+
+
 ## Screenshots
 ### Home Page
 <img src="screenshots/quiz.jpg" alt="Quiz Page" width="600">
