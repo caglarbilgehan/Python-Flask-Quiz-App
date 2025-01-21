@@ -44,8 +44,7 @@ http://127.0.0.1:5000
 
 ## Video Demo
 
-[![Watch the video](https://img.youtube.com/vi/Em_GhfFaUdU/maxresdefault.jpg)](https://youtu.be/Em_GhfFaUdU)
-
+[Watch the Video on YouTube](https://www.youtube.com/watch?v=Em_GhfFaUdU)
 
 ## Screenshots
 ### Home Page
