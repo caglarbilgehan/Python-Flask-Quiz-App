@@ -71,8 +71,8 @@ All contributions and feedback are welcome! Please make sure to open an issue be
 
 ## Contact
 If you have any questions or suggestions about this project, feel free to contact me:  
-📧 Email: caglar@bilgehan.biz 
-GitHub: [caglarbilgehan](https://github.com/caglarbilgehan)
+📧 Email: [caglar@bilgehan.biz](mailto:caglar@bilgehan.biz)  
+💻 GitHub: [caglarbilgehan](https://github.com/caglarbilgehan)
 
 ---
 
