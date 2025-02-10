@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Python Sınavına Hoş Geldiniz!</h1>
+<p>Lütfen adınızı girerek devam edin:</p>
+
+<form action="/" method="POST">
+    <input class="name-input" type="text" name="user_name" placeholder="Adınızı Girin" required>
+    <button type="submit">Sınava Başla</button>
+</form>
+{% endblock %}

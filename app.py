@@ -1,82 +1,81 @@
-from flask import Flask, render_template, request
-import sqlite3
+from flask import Flask, render_template, request, redirect, session
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.secret_key = "supersecretkey"
 
-# SQLite veritabanı bağlantısı
-def get_db_connection():
-    conn = sqlite3.connect('quiz.db')
-    conn.row_factory = sqlite3.Row
-    return conn
+# Veritabanı bağlantısı
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///quiz.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Veritabanı tablosu oluşturma fonksiyonu
-def init_db():
-    conn = sqlite3.connect('quiz.db')
-    c = conn.cursor()
-    c.execute('''
-        CREATE TABLE IF NOT EXISTS scores (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            score INTEGER
-        )
-    ''')
-    conn.commit()
-    conn.close()
+db = SQLAlchemy(app)
 
-# Ana sayfa (quiz.html) gösterimi
-@app.route('/')
+# Veritabanı Modelleri
+class Question(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(255), nullable=False)
+    option_a = db.Column(db.String(255), nullable=False)
+    option_b = db.Column(db.String(255), nullable=False)
+    option_c = db.Column(db.String(255), nullable=False)
+    correct_answer = db.Column(db.String(1), nullable=False)
+
+class Score(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.String(255), nullable=False)
+    user_name = db.Column(db.String(255), nullable=False)  # Kullanıcı Adı
+    score = db.Column(db.Integer, nullable=False)
+
+# Ana sayfa (quiz)
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('quiz.html')
+    if request.method == 'POST':
+        session['user_name'] = request.form.get('user_name', 'Anonim')  # Kullanıcı adını al ve sakla
+        session['user_id'] = session['user_name']  # Kullanıcıyı belirlemek için ID olarak adını kullanıyoruz.
+        return redirect('/quiz')
 
-@app.route('/reset', methods=['POST'])
-def reset_highest_score():
-    conn = get_db_connection()
-    conn.execute('DELETE FROM scores')
-    conn.commit()
-    conn.close()
-    return render_template('result.html', score=0, highest_score=0)
+    return render_template('index.html')
 
+# Quiz sayfası
+@app.route('/quiz')
+def quiz():
+    if 'user_name' not in session:
+        return redirect('/')
 
-# Sınavı gönderme ve sonucu kaydetme
+    questions = Question.query.all()
+    global_high_score = db.session.query(db.func.max(Score.score)).scalar() or 0
+    user_high_score = db.session.query(db.func.max(Score.score)).filter_by(user_id=session['user_id']).scalar() or 0
+
+    return render_template('quiz.html', questions=questions, global_high_score=global_high_score, user_high_score=user_high_score, user_name=session['user_name'])
+
+# Sınav sonucu gönderme
 @app.route('/submit', methods=['POST'])
 def submit():
+    if 'user_name' not in session:
+        return redirect('/')
+
     score = 0
-    correct_answers = {
-    'q1': 'A',  # Elif, Python'daki "else" kısmının kardeşi!
-    'q2': 'A',  # print() – Bu komut seni ünlü yapabilir!
-    'q3': 'B',  # Veri tipidir, sıralı ve değiştirilebilir.
-    'q4': 'A',  # while döngüsü – Sonsuza kadar gidebilir!
-    'q5': 'A',  # Fonksiyon tanımlar – Ama unutma, çok eğlenceli!
-    }
+    questions = Question.query.all()
 
-    # Kullanıcı cevaplarını al
-    user_answers = {
-        'q1': request.form.get('q1'),
-        'q2': request.form.get('q2'),
-        'q3': request.form.get('q3'),
-        'q4': request.form.get('q4'),
-        'q5': request.form.get('q5'),
-    }
-
-    # Cevapları kontrol et ve puanı hesapla
-    for question, answer in user_answers.items():
-        if answer == correct_answers[question]:
+    for question in questions:
+        user_answer = request.form.get(f"q{question.id}")
+        if user_answer == question.correct_answer:
             score += 1
 
-    # Veritabanına en yüksek puanı kaydet
-    conn = get_db_connection()
-    conn.execute('INSERT INTO scores (score) VALUES (?)', (score,))
-    conn.commit()
-    conn.close()
+    new_score = Score(user_id=session['user_id'], user_name=session['user_name'], score=score)
+    db.session.add(new_score)
+    db.session.commit()
 
-    # En yüksek puanı veritabanından al
-    conn = get_db_connection()
-    highest_score = conn.execute('SELECT MAX(score) FROM scores').fetchone()[0]
-    conn.close()
+    global_high_score = db.session.query(db.func.max(Score.score)).scalar()
+    user_high_score = db.session.query(db.func.max(Score.score)).filter_by(user_id=session['user_id']).scalar()
 
-    # Sonuç sayfasına yönlendirme
-    return render_template('result.html', score=score, highest_score=highest_score)
+    return render_template('result.html', score=score, global_high_score=global_high_score, user_high_score=user_high_score, user_name=session['user_name'])
+
+# En yüksek puanı sıfırla
+@app.route('/reset', methods=['POST'])
+def reset_highest_score():
+    db.session.query(Score).delete()
+    db.session.commit()
+    return redirect('/')
 
 if __name__ == '__main__':
-    # Veritabanını başlat
-    init_db()
     app.run(debug=True)

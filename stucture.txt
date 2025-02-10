@@ -1,0 +1,14 @@
+Python-Flask-Quiz-App/
+│── app.py            # Flask ana uygulama dosyası
+│── init_db.py        # Veritabanını başlatma dosyası
+│── models.py         # Veritabanı modelleri
+│── requirements.txt  # Gerekli Python paketleri
+│── templates/        # HTML dosyaları
+│   │── base.html
+│   │── quiz.html
+│   │── result.html
+│── static/           # CSS dosyaları
+│   │── style.css
+│   │── result.css
+│── venv/             # Sanal ortam (proje çalıştırırken oluşturulacak)
+│── quiz.db           # SQLite veritabanı (otomatik oluşturulacak)

@@ -1,47 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
-</head>
-<body>
-    <div class="container">
-        <h1>Results</h1>
-        
-        <!-- Score and High Score Section -->
-        <div class="score-container">
-            <div class="score-box">
-                Your Score: {{ score }} / 5
-            </div>
-            <div class="score-box high-score">
-                Highest Score: {{ highest_score }}
-            </div>
-        </div>
-        
-        <!-- Result Text -->
-        <div class="result-text">
-            <p>You completed the quiz! 🎉</p>
-            <p>You can have more fun and learn by exploring Python topics! 💻</p>
-            <p>Maybe next time you can get them all right! 😎</p>
-        </div>
-        
-        <!-- New Exam Button -->
-        <a href="/" class="btn">
-            <button>New Quiz</button>
-        </a>
+{% extends "base.html" %}
 
-        <!-- Reset High Score -->
-        <form action="/reset" method="post" style="margin-top: 20px;">
-            <button id="reset-high-score-button" type="submit">Reset Highest Score</button>
-        </form>
-        
-        <!-- Footer with Developer Info -->
-        <footer>
-            <p>Developer: E.Çağlar Bilgehan</p>
-            <p><a href="https://github.com/caglarbilgehan" target="_blank">github.com/caglarbilgehan</a></p>
-        </footer>
-    </div>
-</body>
-</html>
+{% block content %}
+<h1>Tebrikler, {{ user_name }}! Sınavı Tamamladın</h1>
+<hr>
+<p>Skorunuz: {{ (score / 10) * 100 }}%</p>
+<hr>
+<p>Kişisel En Yüksek Skorunuz: {{ (user_high_score / 10) * 100 }}%</p>
+<hr>
+<p>Genel En Yüksek Skor: {{ (global_high_score / 10) * 100 }}%</p>
+<hr>
+
+<form action="/quiz" method="GET">
+    <button type="submit">Yeniden Dene</button>
+</form>
+
+
+<form action="/reset" method="post">
+    <button class="reset-button" type="submit">En Yüksek Puanları Sıfırla</button>
+</form>
+{% endblock %}

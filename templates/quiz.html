@@ -1,58 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Fun Quiz with Python!</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="container">
-        <h1>A Fun Quiz with Python!</h1>
-        <form action="/submit" method="POST">
-            <div class="question">
-                <label for="q1">1. What does "elif" do in Python?</label><br>
-                <input type="radio" id="q1A" name="q1" value="A">Elif is the sibling of "else" in Python!<br>
-                <input type="radio" id="q1B" name="q1" value="B">Elif is the secret word of a Python wizard.<br>
-                <input type="radio" id="q1C" name="q1" value="C">Elif is the code you use to order pizza in Python.<br>
-            </div>
+{% extends "base.html" %}
 
-            <div class="question">
-                <label for="q2">2. Which command prints text to the screen in Python?</label><br>
-                <input type="radio" id="q2A" name="q2" value="A">print() – This command might make you famous!<br>
-                <input type="radio" id="q2B" name="q2" value="B">shout() – Does it really shout?<br>
-                <input type="radio" id="q2C" name="q2" value="C">display() – But a bit more stylish!<br>
-            </div>
+{% block content %}
+<h2>Merhaba, {{ user_name }}!</h2>
+<hr>
+<h1>Python Sınavı Başlıyor!</h1>
+<hr>
+<p>Kişisel En Yüksek Skorunuz: {{ (user_high_score / 10) * 100 }}%</p>
+<hr>
+<p>Genel En Yüksek Skor: {{ (global_high_score / 10) * 100 }}%</p>
+<hr style="margin-bottom: 20px;">
 
-            <div class="question">
-                <label for="q3">3. What is a "list" in Python?</label><br>
-                <input type="radio" id="q3A" name="q3" value="A">Python's cutest meal list!<br>
-                <input type="radio" id="q3B" name="q3" value="B">It is a data type, ordered and mutable.<br>
-                <input type="radio" id="q3C" name="q3" value="C">Python's secret shopping cart.<br>
-            </div>
-
-            <div class="question">
-                <label for="q4">4. Which loop can run infinitely in Python?</label><br>
-                <input type="radio" id="q4A" name="q4" value="A">while loop – It can go on forever!<br>
-                <input type="radio" id="q4B" name="q4" value="B">for loop – But a bit more disciplined!<br>
-                <input type="radio" id="q4C" name="q4" value="C">never-ending-loop() – An infinite name!<br>
-            </div>
-
-            <div class="question">
-                <label for="q5">5. What does "def" define in Python?</label><br>
-                <input type="radio" id="q5A" name="q5" value="A">It defines a function – And don't forget, it's fun!<br>
-                <input type="radio" id="q5B" name="q5" value="B">Python's secret alias.<br>
-                <input type="radio" id="q5C" name="q5" value="C">The number one secret of coding.<br>
-            </div>
-
-            <button type="submit">Submit</button>
-        </form>
+<form action="/submit" method="POST">
+    {% for question in questions %}
+    <div class="question">
+        <label>{{ question.id }}. {{ question.text }}</label><br>
+        <input type="radio" name="q{{ question.id }}" value="A"> {{ question.option_a }}<br>
+        <input type="radio" name="q{{ question.id }}" value="B"> {{ question.option_b }}<br>
+        <input type="radio" name="q{{ question.id }}" value="C"> {{ question.option_c }}<br>
     </div>
-
-    <footer>
-        <p>Developer: E.Çağlar Bilgehan</p>
-        <p><a href="https://github.com/caglarbilgehan" target="_blank">github.com/caglarbilgehan</a></p>
-    </footer>
-</body>
-</html>
+    {% endfor %}
+    <button type="submit">Gönder</button>
+</form>
+{% endblock %}
